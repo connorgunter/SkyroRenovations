@@ -12,7 +12,7 @@ function Navbar() {
         </div>
         <nav className="nav-links">
           <Link to="/">Home</Link>
-          <a href="#services">Services</a>
+          <Links to="/services">Services</Links>
           <Link to="/contact">Contact</Link>{" "}
         </nav>
       </div>
