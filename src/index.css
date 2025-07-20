@@ -1,8 +1,13 @@
-/* Reset margins and background */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body, html, #root {
     margin: 0;
     padding: 0;
-    background-color: #0C0C0C; /* Match your dark theme */
+    background-color: #0C0C0C;
   }
   
 

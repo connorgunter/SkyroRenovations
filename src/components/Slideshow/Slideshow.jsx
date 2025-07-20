@@ -47,6 +47,9 @@ import "./Slideshow.css";
 import slide1 from "../../assets/IMG_5557.jpg";
 import slide2 from "../../assets/IMG_5558.jpg";
 import slide3 from "../../assets/IMG_5559.jpg";
+import slide4 from "../../assets/IMG_5567.jpg";
+import slide5 from "../../assets/IMG_5564.jpg";
+import slide6 from "../../assets/IMG_5562.jpg";
 
 function Slideshow() {
   return (
@@ -73,6 +76,15 @@ function Slideshow() {
           </SwiperSlide>
           <SwiperSlide>
             <img src={slide3} alt="Project 3" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={slide4} alt="Project 3" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={slide5} alt="Project 3" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={slide6} alt="Project 3" />
           </SwiperSlide>
         </Swiper>
       </div>

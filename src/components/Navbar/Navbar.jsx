@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import "./Navbar.css";
-import logo from "../../assets/headerlogo.png";
+import logo from "../../assets/headerlogoalt.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -12,7 +12,7 @@ function Navbar() {
         </div>
         <nav className="nav-links">
           <Link to="/">Home</Link>
-          <Links to="/services">Services</Links>
+          <Link to="/services">Services</Link>
           <Link to="/contact">Contact</Link>{" "}
         </nav>
       </div>
