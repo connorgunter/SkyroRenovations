@@ -14,7 +14,7 @@ function Contact() {
               Have a project in mind? We'd love to hear from you.
               <br />
               <br />
-              Let’s elevate your space with craftsmanship & class.
+              Let’s elevate your space with craftsmanship &amp; class.
               <br />
               <br />
               <strong>📍</strong> 900 Industrial Blvd Unit 11B
@@ -32,26 +32,19 @@ function Contact() {
             name="contact"
             method="POST"
             data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/thanks"               /* redirect after submit (optional) */
           >
+            {/* Required hidden fields for Netlify */}
             <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden" style={{ display: "none" }}>
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+
             <input type="text" name="name" placeholder="Your Name" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Your Phone Number"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              required
-            ></textarea>
+            <input type="email" name="email" placeholder="Your Email" required />
+            <input type="tel" name="phone" placeholder="Your Phone Number" required />
+            <textarea name="message" placeholder="Your Message" required />
             <button type="submit">Send Message</button>
           </form>
         </section>
