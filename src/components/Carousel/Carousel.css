@@ -1,0 +1,65 @@
+/* Uses tokens: --black, --charcoal, --gold, --gold-900, --offwhite */
+:root { /* fallbacks if tokens missing */ --gold:#D4AF37; --gold-900:#B89017; --offwhite:#F5F5F5; }
+
+.carousel {
+  position: relative;
+  background: #fff;                     /* white frame pops on dark page */
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,.45);
+  max-width: clamp(320px, 92vw, 560px); /* portrait-friendly width */
+  margin: 0 auto;                       /* centered on page */
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform .45s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  aspect-ratio: var(--ratio, 3/4);      /* ← portrait shape */
+  height: auto;                         /* height derives from width & aspect-ratio */
+  background: #000;                     /* behind image if using contain */
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--fit, cover);        /* "cover" crops a bit; "contain" shows full with letterbox */
+  display: block;
+}
+
+/* nav buttons */
+.carousel-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 999px;
+  border: 2px solid var(--gold);
+  background: rgba(0,0,0,.45);
+  color: var(--offwhite);
+  display: grid; place-items: center;
+  font-size: 26px; line-height: 1; cursor: pointer;
+  transition: background-color .2s ease, transform .1s ease;
+}
+.carousel-nav:hover { background: var(--gold); color: var(--black); }
+.carousel-nav.prev { left: 12px; }
+.carousel-nav.next { right: 12px; }
+
+/* dots */
+.carousel-dots {
+  position: absolute; left: 0; right: 0; bottom: 10px;
+  display: flex; justify-content: center; gap: 8px;
+}
+.carousel-dots .dot {
+  width: 10px; height: 10px; border-radius: 999px; cursor: pointer;
+  border: 2px solid var(--gold); background: transparent;
+  transition: background-color .2s ease, transform .1s ease;
+}
+.carousel-dots .dot.active { background: var(--gold); transform: scale(1.05); }
+
+/* mobile: keep tall but not huge */
+@media (max-width: 900px) {
+  .carousel { max-width: 92vw; }
+}

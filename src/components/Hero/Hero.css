@@ -1,107 +1,107 @@
 .hero-section {
-    background-color: #CFAF63;
-    color: #0C0C0C;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem;
-  }
-  
-  .hero-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .hero-logo-wrapper {
-    display: flex;
-    align-items: center;
-    max-height: 100px; /* Prevents stretching */
-  }
-  
-  .hero-logo {
-    padding-top: 10px;
-    height: 175px;
-    width: auto;
-    object-fit: contain;
-  }
-  
-  
-  .hero-links a {
-    margin-left: 2rem;
-    text-decoration: none;
-    color: #0C0C0C;
-    font-weight: 600;
-    transition: opacity 0.3s;
-  }
-  
-  .hero-links a:hover {
-    opacity: 0.7;
-  }
-  
-  .hero-window-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
+  background-color: var(--black, #0D0D0D);
+  color: var(--offwhite, #F5F5F5);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+/* windowed gallery */
+.hero-window-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-window-gallery img {
+  width: 260px;
+  height: 340px;
+  object-fit: cover;
+  border: 6px solid var(--gold, #D4AF37);
+  background: var(--charcoal, #1A1A1A);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* center content */
+.hero-content {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 5rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  color: var(--gold, #D4AF37);
+  letter-spacing: 0.5px;
+}
+
+/* Force paragraph color (beats any global p{} with !important) */
+.hero-section .hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--offwhite, #F5F5F5) !important;
+  opacity: 0.9;
+}
+
+/* buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.15s ease, background-color 0.25s ease,
+              color 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
+}
+.hero-btn:hover { transform: translateY(-1px); }
+.hero-btn:focus-visible { outline: 3px solid var(--gold, #D4AF37); outline-offset: 2px; }
+
+/* primary */
+.hero-btn.primary {
+  background-color: var(--gold, #D4AF37);
+  color: var(--black, #0D0D0D);
+  border: 2px solid var(--gold, #D4AF37);
+}
+.hero-btn.primary:hover {
+  background-color: var(--gold-900, #B89017);
+  border-color: var(--gold-900, #B89017);
+}
+
+/* secondary (high contrast) */
+.hero-btn.secondary {
+  background: transparent;
+  color: var(--gold, #D4AF37);
+  border: 2px solid var(--gold, #D4AF37);
+  font-weight: 700;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15) inset;
+}
+.hero-btn.secondary:hover {
+  background-color: var(--gold, #D4AF37);
+  color: var(--black, #0D0D0D);
+  border-color: var(--gold-900, #B89017);
+}
+
+/* small screens */
+@media (max-width: 900px) {
+  .hero-window-gallery { gap: 1rem; }
   .hero-window-gallery img {
-    width: 260px;
-    height: 340px;
-    object-fit: cover;
-    border: 6px solid white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: min(32vw, 260px);
+    height: min(42vw, 340px);
   }
-  
-  .hero-content {
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: 5rem;
-  }
-  
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-  
-  .hero-btn {
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  
-  .hero-btn.primary {
-    background-color: #0C0C0C;
-    color: #CFAF63;
-  }
-  
-  .hero-btn.primary:hover {
-    background-color: #1A1A1A;
-  }
-  
-  .hero-btn.secondary {
-    background-color: transparent;
-    color: #0C0C0C;
-    border: 2px solid #0C0C0C;
-  }
-  
-  .hero-btn.secondary:hover {
-    background-color: #0C0C0C;
-    color: #CFAF63;
-  }
-  
+  .hero-content { margin-bottom: 3rem; }
+}

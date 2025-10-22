@@ -1,44 +1,93 @@
+/* --- Skyro gold-on-dark theme tokens --- */
+:root {
+  --gold: #D4AF37;
+  --gold-dark: #B89017;
+  --black: #0D0D0D;
+  --offblack: #1A1A1A;
+}
+
+/* BAR */
 .navbar {
-  background-color: #B18C36;
-  color: #0C0C0C;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  background-color: var(--gold);
+  color: var(--black);
   position: sticky;
   top: 0;
   z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
+/* LAYOUT: full-width with edge padding; logo left, links right */
 .navbar-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  height: 60px;
+  justify-content: flex-start;                   /* no center spacing */
+  width: 100%;
+  max-width: none;                               /* span full width */
+  margin: 0;
+  padding: 0.75rem clamp(14px, 4vw, 48px);       /* edge padding only */
+  height: 64px;
 }
 
+/* LOGO (left) */
 .logo-container {
   display: flex;
   align-items: center;
   height: 100%;
+  margin-right: clamp(16px, 3vw, 40px);          /* space before links */
 }
-
 .logo-img {
   height: 200px;
   width: auto;
   object-fit: contain;
 }
 
+/* LINKS (right) */
+.nav-links {
+  margin-left: auto;                             /* shove to right */
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 28px);                 /* even spacing */
+}
 .nav-links a {
-  color: #0C0C0C;
-  margin-left: 1.5rem;
+  color: var(--black);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  line-height: 1;
+  font-weight: 600;
+  transition: color 0.25s ease, background-color 0.25s ease;
+  padding: .35rem .5rem;
+  border-radius: 4px;
+}
+.nav-links a:hover {
+  background-color: var(--black);
+  color: var(--gold);
 }
 
-.nav-links a:hover {
-  color: #0C0C0C;
-  text-decoration: underline;
+/* Contact = CTA (still far right) */
+.nav-cta {
+  padding: .45rem .9rem;
+  border-radius: 6px;
+  border: 2px solid var(--black);
+  color: var(--black);
+  font-weight: 700;
+}
+.nav-cta:hover {
+  background-color: var(--black);
+  color: var(--gold);
+  border-color: var(--gold-dark);
+}
+
+/* Small screens: keep edges tight */
+@media (max-width: 640px) {
+  .navbar-container { padding: 0.6rem 14px; }
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-link:focus-visible {
+  outline: 3px solid var(--black);
+  outline-offset: 2px;
 }

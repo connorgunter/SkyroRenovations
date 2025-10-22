@@ -13,5 +13,6 @@ body, html, #root {
 
   html {
     scroll-behavior: smooth;
+    overflow-y: scroll; /* always reserve vertical scrollbar space */
+    scrollbar-gutter: stable; /* modern browsers: prevent layout shift */
   }
-  

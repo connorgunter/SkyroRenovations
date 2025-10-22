@@ -5,12 +5,16 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Slideshow.css";
 
-import slide1 from "../../assets/IMG_5557.jpg";
-import slide2 from "../../assets/IMG_5558.jpg";
-import slide3 from "../../assets/IMG_5559.jpg";
-import slide4 from "../../assets/IMG_5567.jpg";
-import slide5 from "../../assets/IMG_5564.jpg";
-import slide6 from "../../assets/IMG_5562.jpg";
+import slide1 from "../../assets/KB/IMG_5557.jpg";
+import slide2 from "../../assets/Outdoor/IMG_5558.jpg";
+import slide3 from "../../assets/KB/IMG_5559.jpg";
+import slide4 from "../../assets/KB/IMG_5567.jpg";
+import slide5 from "../../assets/KB/IMG_5564.jpg";
+import slide6 from "../../assets/Outdoor/IMG_5562.jpg";
+import slide7 from "../../assets/KB/IMG_6483.jpg";
+import slide8 from "../../assets/KB/IMG_0327.jpg";
+import slide9 from "../../assets/KB/IMG_0330.jpg";
+import slide10 from "../../assets/KB/IMG_0339.jpg";
 
 function Slideshow() {
   return (
@@ -37,7 +41,7 @@ function Slideshow() {
           autoplay={{ delay: 4000 }}
           loop
         >
-          {[slide1, slide2, slide3, slide4, slide5, slide6].map((src, idx) => (
+          {[slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10].map((src, idx) => (
             <SwiperSlide key={idx}>
               <img src={src} alt={`Project ${idx + 1}`} />
             </SwiperSlide>
