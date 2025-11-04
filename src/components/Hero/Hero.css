@@ -18,8 +18,8 @@
 }
 
 .hero-window-gallery img {
-  width: 260px;
-  height: 340px;
+  width: 275px;
+  height: 355px;
   object-fit: cover;
   /* border: 6px solid var(--gold, #D4AF37); */
   background: var(--charcoal, #1A1A1A);
