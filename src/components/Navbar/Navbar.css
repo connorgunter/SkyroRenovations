@@ -88,80 +88,70 @@
 /* ===== MOBILE STYLES ===== */
 /* --- MOBILE NAV (≤ 860px) --- */
 @media (max-width: 860px) {
-  .navbar {
-    /* no extra top padding here; safe area handled in container */
-  }
-
   .navbar-container {
     position: relative;
     justify-content: center;
     align-items: center;
-    /* reserve space for the large logo + notch safely */
-    min-height: calc( env(safe-area-inset-top) + 210px );
-    padding: env(safe-area-inset-top) 16px 12px;
+    min-height: calc(env(safe-area-inset-top) + 160px); /* smaller overall height */
+    padding: env(safe-area-inset-top) 16px 8px;
   }
 
-  /* center the logo inside the navbar */
+  /* Centered large logo */
   .logo-container {
     position: absolute;
-    top: env(safe-area-inset-top);
+    top: calc(env(safe-area-inset-top) + 8px);
     left: 50%;
     transform: translateX(-50%);
-    margin: 0;              /* override desktop negative margin */
-    height: auto;           /* let it grow */
+    margin: 0;
+    height: auto;
   }
 
   .logo-img {
-    height: 225px !important;  /* big, as requested */
+    height: 200px !important; /* slightly smaller but still large */
     width: auto;
     object-fit: contain;
   }
 
-  /* hamburger pinned top-right */
+  /* Hamburger top right */
   .menu-toggle {
     position: absolute;
     right: 16px;
-    top: calc(env(safe-area-inset-top) + 12px);
+    top: calc(env(safe-area-inset-top) + 16px);
     display: block;
     z-index: 1001;
   }
 
-  /* dropdown: sits directly BELOW the navbar, no hard-coded px */
+  /* Dropdown menu */
   .nav-links {
     position: absolute;
+    top: 100%; /* attach directly under navbar */
     left: 0;
     right: 0;
-    top: 100%;                    /* ← anchor to bottom of navbar */
     background-color: var(--gold);
-    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
-    padding: 0 0 1rem;
-
-    /* slide/fade without pushing layout */
-    max-height: 0;
-    overflow: hidden;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 1rem 0;
+    transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
-    transition: max-height .3s ease, opacity .25s ease;
-    box-shadow: 0 8px 14px rgba(0,0,0,.25);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
   }
 
   .nav-links.active {
-    max-height: 60vh;            /* enough room for links */
+    transform: translateY(0);
     opacity: 1;
-    pointer-events: auto;
-    padding-top: 12px;
+    pointer-events: all;
   }
 }
 
-/* tiny phones */
 @media (max-width: 480px) {
   .navbar-container {
-    min-height: calc( env(safe-area-inset-top) + 190px );
+    min-height: calc(env(safe-area-inset-top) + 140px);
   }
   .logo-img {
-    height: 190px !important;
+    height: 170px !important;
   }
 }
