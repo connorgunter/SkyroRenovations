@@ -87,42 +87,44 @@
 
 /* ===== MOBILE STYLES ===== */
 @media (max-width: 860px) {
+  .navbar {
+    padding-top: env(safe-area-inset-top); /* fix iPhone notch overlap */
+  }
+
   .navbar-container {
     justify-content: center;
     align-items: center;
-    height: auto;
-    padding: 1rem 1rem 0.5rem;
     position: relative;
+    height: auto;
+    padding: calc(env(safe-area-inset-top) + 1rem) 1rem 0.5rem;
   }
 
-  /* Center and free the logo */
   .logo-container {
     position: absolute;
+    top: calc(env(safe-area-inset-top) + 10px);
     left: 50%;
     transform: translateX(-50%);
-    margin: 0;
-    height: auto; /* allow it to grow freely */
+    height: auto;
+    z-index: 100;
   }
 
   .logo-img {
-    height: 225px !important; /* force override desktop size */
+    height: 225px !important;
     width: auto;
     object-fit: contain;
   }
 
-  /* Hamburger button stays top right */
   .menu-toggle {
     position: absolute;
     right: 20px;
-    top: 30px;
+    top: calc(env(safe-area-inset-top) + 25px);
     display: block;
-    z-index: 1001;
+    z-index: 200;
   }
 
-  /* Dropdown menu */
   .nav-links {
     position: absolute;
-    top: 250px; /* push down under large logo */
+    top: 270px; /* moves menu below the large logo */
     left: 0;
     width: 100%;
     background-color: var(--gold);
@@ -143,6 +145,7 @@
     pointer-events: all;
   }
 }
+
 
 @media (max-width: 480px) {
   .logo-img {
