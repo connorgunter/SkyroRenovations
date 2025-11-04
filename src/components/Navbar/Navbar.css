@@ -86,48 +86,48 @@
 }
 
 /* === MOBILE (≤ 860px) — tight bar, centered logo, aligned toggle === */
+/* === MOBILE (≤ 860px) — tight bar, centered logo, aligned toggle === */
 @media (max-width: 860px) {
-  /* grid: [spacer] [logo] [toggle]  */
-  .navbar-container {
-    display: grid;
+  /* make sure this actually overrides the base flex row */
+  .navbar .navbar-container {
+    display: grid !important;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     justify-items: center;
-    padding: calc(env(safe-area-inset-top) + 4px) 12px 4px; /* ~5px top/bottom */
-    height: auto; /* logo height dictates bar height */
+    padding: calc(env(safe-area-inset-top) + 4px) 12px 4px !important; /* ~5px top/btm */
+    height: auto !important; /* kill the 80px height */
     position: relative;
   }
 
-  /* center logo in the middle cell (no absolute positioning) */
-  .logo-container {
+  /* center logo in middle cell */
+  .navbar .logo-container {
     grid-column: 2;
-    margin: 0;
-    height: auto;
+    margin: 0 !important;
+    height: auto !important;
   }
-  .logo-img {
-    height: 150px !important; /* adjust to taste: 150–170px */
+  .navbar .logo-img {
+    height: 150px !important;  /* 150–170 looks great; bump if you want */
     width: auto;
     object-fit: contain;
   }
 
-  /* hamburger in the right cell, vertically centered with logo */
-  .menu-toggle {
+  /* hamburger on right, vertically centered */
+  .navbar .menu-toggle {
     grid-column: 3;
     justify-self: end;
     align-self: center;
-    display: block;
+    display: block !important; /* override base display:none */
     z-index: 1001;
   }
 
-  /* dropdown attaches directly under the bar; no big offsets */
-  .nav-links {
-    position: absolute;
+  /* dropdown attaches directly below bar */
+  .navbar .nav-links {
+    position: absolute !important;
     left: 0;
     right: 0;
-    top: 100%;                 /* sits right below the navbar */
+    top: 100%;
     background: var(--gold);
-    display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: center;
     gap: 14px;
     padding: 0 0 10px;
@@ -139,7 +139,7 @@
     transition: max-height .28s ease, opacity .2s ease;
     box-shadow: 0 8px 14px rgba(0,0,0,.25);
   }
-  .nav-links.active {
+  .navbar .nav-links.active {
     max-height: 60vh;
     opacity: 1;
     pointer-events: auto;
@@ -149,5 +149,5 @@
 
 /* tiny phones */
 @media (max-width: 480px) {
-  .logo-img { height: 140px !important; } /* keep padding tight */
+  .navbar .logo-img { height: 140px !important; }
 }
