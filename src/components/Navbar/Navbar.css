@@ -87,13 +87,37 @@
 
 /* ===== MOBILE STYLES ===== */
 @media (max-width: 860px) {
-  .menu-toggle {
-    display: block;
+  .navbar-container {
+    justify-content: center;
+    position: relative;
   }
 
+  /* Center the logo */
+  .logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+
+  .logo-img {
+    height: 180px; /* larger on mobile */
+    width: auto;
+  }
+
+  /* Keep the hamburger visible on the right */
+  .menu-toggle {
+    position: absolute;
+    right: 20px;
+    top: 28px;
+    display: block;
+    z-index: 1001;
+  }
+
+  /* Slide-down menu */
   .nav-links {
     position: absolute;
-    top: 80px;
+    top: 90px; /* slightly lower to account for bigger logo */
     left: 0;
     width: 100%;
     background-color: var(--gold);
@@ -105,6 +129,7 @@
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
+    transition: all 0.3s ease;
   }
 
   .nav-links.active {
@@ -112,15 +137,19 @@
     opacity: 1;
     pointer-events: all;
   }
-
-  .logo-img {
-    height: 200px;
-  }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
   .logo-img {
-    height: 140px;
+    height: 150px;
+  }
+
+  .menu-toggle {
+    top: 20px;
+    right: 16px;
+  }
+
+  .nav-links {
+    top: 80px;
   }
 }
