@@ -85,34 +85,65 @@
   border-color: var(--gold-dark);
 }
 
-/* Center logo on mobile only */
+/* === MOBILE FIX (≤ 860px): center logo, expand bar to fit it, drop menu under bar === */
 @media (max-width: 860px) {
-  .logo-container {
-    justify-content: center;
-    width: 100%;
-  }
-
-  /* make sure the nav and toggle don’t push it out of place */
+  /* Let the bar grow to the logo and act as the anchor for the dropdown */
   .navbar-container {
-    flex-direction: column;
+    position: relative;
+    height: auto;              /* <-- critical: no fixed 80px */
+    padding: 8px 12px;         /* tight gold above/below */
+    flex-direction: column;    /* stack toggle -> logo -> (dropdown below bar) */
     align-items: center;
   }
 
-  /* keep hamburger above logo */
+  /* Show the hamburger above the logo, aligned to the right edge */
   .menu-toggle {
     align-self: flex-end;
-    margin-bottom: 4px;
+    display: block;
+    margin-bottom: 6px;
   }
 
-  /* ensure nav drops below logo cleanly */
+  /* Center the logo and keep your size */
+  .logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .logo-img {
+    height: 220px;   /* your current mobile size */
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Make the dropdown attach to the bottom of the navbar, not the page */
   .nav-links {
-    top: auto;
+    position: absolute;        /* anchor to .navbar-container */
+    left: 0;
+    right: 0;
+    top: 100%;                 /* directly under the gold bar */
+    background-color: var(--gold);
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 1rem 0 1.2rem;
+
+    /* hidden state */
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .28s ease, opacity .2s ease;
+    box-shadow: 0 8px 14px rgba(0,0,0,.25);
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
   }
 }
 
-
-/* Small phones — scale down a bit if needed */
+/* Small phones */
 @media (max-width: 480px) {
-  :root { --mobile-logo: 150px; }
+  .logo-img { height: 140px; } /* your existing small-phone size */
 }
-
