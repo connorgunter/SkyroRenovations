@@ -11,7 +11,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-container {
@@ -19,8 +19,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem clamp(12px, 3vw, 40px);
-  min-height: 80px; /* ← min-height so desktop can grow if ever needed */
-  position: relative; /* allows dropdown to anchor with top:100% */
+  height: 80px;
 }
 
 /* ===== LOGO ===== */
@@ -28,26 +27,16 @@
   display: flex;
   align-items: center;
 }
-.logo-link {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-.logo-link:focus-visible {
-  outline: 3px solid var(--black);
-  outline-offset: 2px;
-}
+
 .logo-img {
-  height: 260px;  /* big logo for desktop */
+  height: 260px;
   width: auto;
   object-fit: contain;
-  display: block; /* prevent inline-img line-height gaps */
 }
 
 /* ===== HAMBURGER BUTTON ===== */
 .menu-toggle {
-  display: none; /* hidden on desktop, shown on mobile */
+  display: none;
   background: none;
   border: none;
   color: var(--black);
@@ -55,7 +44,10 @@
   z-index: 1001;
   transition: color 0.3s ease;
 }
-.menu-toggle:hover { color: var(--gold-dark); }
+
+.menu-toggle:hover {
+  color: var(--gold-dark);
+}
 
 /* ===== NAV LINKS ===== */
 .nav-links {
@@ -64,6 +56,7 @@
   gap: clamp(16px, 2.4vw, 28px);
   transition: all 0.3s ease;
 }
+
 .nav-links a {
   color: var(--black);
   text-decoration: none;
@@ -72,6 +65,7 @@
   border-radius: 4px;
   transition: color 0.25s ease, background-color 0.25s ease;
 }
+
 .nav-links a:hover {
   background-color: var(--black);
   color: var(--gold);
@@ -83,92 +77,50 @@
   border: 2px solid var(--black);
   color: var(--black);
   font-weight: 700;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
+
 .nav-cta:hover {
   background-color: var(--black);
   color: var(--gold);
   border-color: var(--gold-dark);
 }
 
-/* ===== MOBILE (≤ 860px): revert-to-first-version + precise hamburger alignment ===== */
+/* ===== MOBILE STYLES ===== */
 @media (max-width: 860px) {
-  /* tweakable variables for clean alignment */
-  .navbar {
-    --logoH: 190px;      /* mobile logo height (change to 170–200 if you want) */
-    --icon: 26px;        /* hamburger icon size */
-    --padY: 4px;         /* top/bottom padding around the logo */
-  }
-
-  .navbar .navbar-container {
-    position: relative;
+  .menu-toggle {
     display: block;
-    padding: calc(env(safe-area-inset-top) + var(--padY)) 16px var(--padY);
-    height: auto;
   }
 
-  /* centered logo (absolute), like the first version */
-  .navbar .logo-container {
+  .nav-links {
     position: absolute;
-    top: calc(env(safe-area-inset-top) + var(--padY));
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    height: auto;
-  }
-  .navbar .logo-img {
-    height: var(--logoH) !important;
-    width: auto;
-    object-fit: contain;
-    display: block;
-  }
-
-  /* reserve exactly the logo height so page content starts right below the bar */
-  .navbar .navbar-container::after {
-    content: "";
-    display: block;
-    height: var(--logoH);
-  }
-
-  /* HAMBURGER: right side, vertically centered to the logo */
-  .navbar .menu-toggle {
-    position: absolute;
-    right: 16px;
-    /* logo top + (logoH - icon)/2 centers the icon to the logo */
-    top: calc(env(safe-area-inset-top) + var(--padY) + (var(--logoH) - var(--icon)) / 2);
-    display: block !important;
-    z-index: 1001;
-  }
-
-  /* dropdown: attaches to the bottom of the navbar (no big offsets) */
-  .navbar .nav-links {
-    position: absolute !important;
+    top: 80px;
     left: 0;
-    right: 0;
-    top: 100%;
-    background: var(--gold);
-    display: flex;
-    flex-direction: column !important;
+    width: 100%;
+    background-color: var(--gold);
+    flex-direction: column;
     align-items: center;
-    gap: 14px;
-    padding: 0 0 12px;
-
-    max-height: 0;
-    overflow: hidden;
+    justify-content: flex-start;
+    gap: 18px;
+    padding: 1rem 0 1.5rem;
+    transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
-    transition: max-height .28s ease, opacity .22s ease;
-    box-shadow: 0 8px 14px rgba(0,0,0,.25);
   }
-  .navbar .nav-links.active {
-    max-height: 60vh;
+
+  .nav-links.active {
+    transform: translateY(0);
     opacity: 1;
-    pointer-events: auto;
-    padding-top: 10px;
+    pointer-events: all;
+  }
+
+  .logo-img {
+    height: 200px;
   }
 }
 
-/* tiny phones */
+/* Small phones */
 @media (max-width: 480px) {
-  .navbar { --logoH: 160px; --icon: 26px; --padY: 4px; }
+  .logo-img {
+    height: 140px;
+  }
 }

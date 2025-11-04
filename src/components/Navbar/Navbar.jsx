@@ -2,6 +2,7 @@ import "./Navbar.css";
 import logo from "../../assets/headerlogoalt.png";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react"; // optional icons; remove if not using lucide-react
 
 function Navbar({ variant = "solid" }) {
   const [scrolled, setScrolled] = useState(false);
@@ -15,8 +16,12 @@ function Navbar({ variant = "solid" }) {
 
   const transparentActive = variant === "transparent" && !scrolled;
 
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
   return (
-    <header className={`navbar ${transparentActive ? "navbar--transparent" : "navbar--solid"}`}>
+    <header
+      className={`navbar ${transparentActive ? "navbar--transparent" : "navbar--solid"}`}
+    >
       <div className="navbar-container">
         <div className="logo-container">
           <Link to="/" className="logo-link" aria-label="Skyro Renovations — Home">
@@ -24,30 +29,17 @@ function Navbar({ variant = "solid" }) {
           </Link>
         </div>
 
-        {/* Hamburger toggle (inline SVG, no dependency) */}
+        {/* Hamburger toggle */}
         <button
           className={`menu-toggle ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen((v) => !v)}
+          onClick={toggleMenu}
           aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
-          type="button"
         >
-          {menuOpen ? (
-            // X icon
-            <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          ) : (
-            // Hamburger icon
-            <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          )}
+          {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
 
-        {/* Nav links */}
-        <nav id="mobile-nav" className={`nav-links ${menuOpen ? "active" : ""}`}>
+        {/* Navigation links */}
+        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
           <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/#services" onClick={() => setMenuOpen(false)}>Services</Link>
           <Link to="/contact" className="nav-cta" onClick={() => setMenuOpen(false)}>Contact</Link>
