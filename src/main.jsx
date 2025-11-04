@@ -8,6 +8,7 @@ import Services from "./pages/Services/Services.jsx";
 import Kitchen from "./pages/Kitchen/Kitchen.jsx";
 import Outdoor from "./pages/Outdoor/Outdoor.jsx";
 import Flooring from "./pages/Flooring/Flooring.jsx";
+import CommercialConstruction from "./pages/Construction/Construction.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/kitchen" element={<Kitchen />} />
         <Route path="/outdoor" element={<Outdoor />} />
         <Route path="/flooring" element={<Flooring />} />
+        <Route path="/commercial-construction" element={<CommercialConstruction />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

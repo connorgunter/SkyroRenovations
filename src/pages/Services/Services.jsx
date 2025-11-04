@@ -28,6 +28,11 @@ function Services({ id = "services" }) {
             <p>Screened lanais, patios, porch enclosures, and small additions — permitted, scheduled, and managed end-to-end with Skyro's general contracting oversight.</p>
             <a href="/outdoor" className="service-btn">Learn More</a>
           </div>
+          <div className="service-card">
+            <h3>Commercial Construction</h3>
+            <p>Restaurants, salons, academies, and custom commercial spaces—built to code, on schedule, and with the Skyro standard of quality.</p>
+            <a href="/commercial-construction" className="service-btn">Learn More</a>
+          </div>
         </div>
     </section>
   );

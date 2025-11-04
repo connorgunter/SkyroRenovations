@@ -22,6 +22,13 @@ function Hero() {
         <div className="hero-content">
           <h1>Skyro Renovations</h1>
           <p>Elevating Florida Homes with Craftsmanship & Class</p>
+          <section className="home-summary">
+  <p>
+    Skyro Renovations specializes in <strong>Residential</strong> and <strong>Commercial Construction</strong>,
+    delivering high-end finishes, remodels, and complete buildouts.
+  </p>
+</section>
+
           <div className="hero-buttons">
             <a href="#gallery" className="hero-btn primary">View Our Work</a>
             <a href="/contact" className="hero-btn secondary">Get In Touch</a>

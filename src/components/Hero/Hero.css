@@ -21,7 +21,7 @@
   width: 260px;
   height: 340px;
   object-fit: cover;
-  border: 6px solid var(--gold, #D4AF37);
+  /* border: 6px solid var(--gold, #D4AF37); */
   background: var(--charcoal, #1A1A1A);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
@@ -95,6 +95,16 @@
   color: var(--black, #0D0D0D);
   border-color: var(--gold-900, #B89017);
 }
+
+.home-summary {
+  text-align: center;
+  background: #0D0D0D;
+  color: var(--gold);
+  padding: 1rem 1.25rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
 
 /* small screens */
 @media (max-width: 900px) {

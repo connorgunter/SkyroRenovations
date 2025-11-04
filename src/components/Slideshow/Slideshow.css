@@ -57,18 +57,18 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #CFAF63; /* brushed gold */
+  color: #CFAF63;  
 }
 
 
 .swiper-pagination-bullet {
-  background-color: #777; /* light gray */
+  background-color: #777; 
   opacity: 0.7;
 }
 
 
 .swiper-pagination-bullet-active {
-  background-color: #CFAF63; /* brushed gold */
+  background-color: #CFAF63; 
 }
 
 
@@ -82,3 +82,5 @@
     text-align: center;
   }
 }
+
+
