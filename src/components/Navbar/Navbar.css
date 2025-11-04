@@ -86,72 +86,82 @@
 }
 
 /* ===== MOBILE STYLES ===== */
+/* --- MOBILE NAV (≤ 860px) --- */
 @media (max-width: 860px) {
   .navbar {
-    padding-top: env(safe-area-inset-top); /* fix iPhone notch overlap */
+    /* no extra top padding here; safe area handled in container */
   }
 
   .navbar-container {
+    position: relative;
     justify-content: center;
     align-items: center;
-    position: relative;
-    height: auto;
-    padding: calc(env(safe-area-inset-top) + 1rem) 1rem 0.5rem;
+    /* reserve space for the large logo + notch safely */
+    min-height: calc( env(safe-area-inset-top) + 210px );
+    padding: env(safe-area-inset-top) 16px 12px;
   }
 
+  /* center the logo inside the navbar */
   .logo-container {
     position: absolute;
-    top: calc(env(safe-area-inset-top) + 10px);
+    top: env(safe-area-inset-top);
     left: 50%;
     transform: translateX(-50%);
-    height: auto;
-    z-index: 100;
+    margin: 0;              /* override desktop negative margin */
+    height: auto;           /* let it grow */
   }
 
   .logo-img {
-    height: 225px !important;
+    height: 225px !important;  /* big, as requested */
     width: auto;
     object-fit: contain;
   }
 
+  /* hamburger pinned top-right */
   .menu-toggle {
     position: absolute;
-    right: 20px;
-    top: calc(env(safe-area-inset-top) + 25px);
+    right: 16px;
+    top: calc(env(safe-area-inset-top) + 12px);
     display: block;
-    z-index: 200;
+    z-index: 1001;
   }
 
+  /* dropdown: sits directly BELOW the navbar, no hard-coded px */
   .nav-links {
     position: absolute;
-    top: 270px; /* moves menu below the large logo */
     left: 0;
-    width: 100%;
+    right: 0;
+    top: 100%;                    /* ← anchor to bottom of navbar */
     background-color: var(--gold);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     gap: 18px;
-    padding: 1.5rem 0;
-    transform: translateY(-100%);
+    padding: 0 0 1rem;
+
+    /* slide/fade without pushing layout */
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: max-height .3s ease, opacity .25s ease;
+    box-shadow: 0 8px 14px rgba(0,0,0,.25);
   }
 
   .nav-links.active {
-    transform: translateY(0);
+    max-height: 60vh;            /* enough room for links */
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto;
+    padding-top: 12px;
   }
 }
 
-
+/* tiny phones */
 @media (max-width: 480px) {
+  .navbar-container {
+    min-height: calc( env(safe-area-inset-top) + 190px );
+  }
   .logo-img {
     height: 190px !important;
-  }
-  .nav-links {
-    top: 210px;
   }
 }
