@@ -85,73 +85,83 @@
   border-color: var(--gold-dark);
 }
 
-/* ===== MOBILE STYLES ===== */
-/* --- MOBILE NAV (≤ 860px) --- */
+/* === MOBILE NAV (≤ 860px) — tight spacing, centered logo, aligned toggle === */
 @media (max-width: 860px) {
+  .navbar { padding: 0; } /* no extra padding on the bar itself */
+
   .navbar-container {
     position: relative;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(env(safe-area-inset-top) + 160px); /* smaller overall height */
-    padding: env(safe-area-inset-top) 16px 8px;
+    display: block;
+    padding: calc(env(safe-area-inset-top) + 8px) 16px 8px; /* small, notch-safe */
+    height: auto;
   }
 
-  /* Centered large logo */
+  /* Center the logo absolutely */
   .logo-container {
     position: absolute;
     top: calc(env(safe-area-inset-top) + 8px);
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
-    height: auto;
+    height: auto; /* let the image dictate height */
   }
 
+  /* Large mobile logo */
   .logo-img {
-    height: 200px !important; /* slightly smaller but still large */
+    height: 180px !important;
     width: auto;
     object-fit: contain;
   }
 
-  /* Hamburger top right */
+  /* Reserve exactly the logo height so content sits right below the bar */
+  .navbar-container::after {
+    content: "";
+    display: block;
+    height: 180px; /* must match .logo-img height */
+  }
+
+  /* Hamburger: right side, vertically centered vs the logo */
   .menu-toggle {
     position: absolute;
     right: 16px;
-    top: calc(env(safe-area-inset-top) + 16px);
+    /* logo top + half logo height − half icon height (≈13px for a 26px icon) */
+    top: calc(env(safe-area-inset-top) + 8px + 90px - 13px);
     display: block;
     z-index: 1001;
   }
 
-  /* Dropdown menu */
+  /* Dropdown attaches to bottom of navbar, not pushed way down */
   .nav-links {
     position: absolute;
-    top: 100%; /* attach directly under navbar */
     left: 0;
     right: 0;
-    background-color: var(--gold);
+    top: 100%;                 /* anchors directly under the bar */
+    background: var(--gold);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    gap: 16px;
-    padding: 1rem 0;
-    transform: translateY(-100%);
+    gap: 14px;
+    padding: 0 0 12px;
+
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transition: max-height .28s ease, opacity .22s ease;
+    box-shadow: 0 8px 14px rgba(0,0,0,.25);
   }
 
   .nav-links.active {
-    transform: translateY(0);
+    max-height: 60vh;
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto;
+    padding-top: 10px;
   }
 }
 
+/* Tiny phones */
 @media (max-width: 480px) {
-  .navbar-container {
-    min-height: calc(env(safe-area-inset-top) + 140px);
-  }
-  .logo-img {
-    height: 170px !important;
-  }
+  .logo-img { height: 160px !important; }
+  .navbar-container::after { height: 160px; }
+  .menu-toggle { top: calc(env(safe-area-inset-top) + 8px + 80px - 13px); }
 }
