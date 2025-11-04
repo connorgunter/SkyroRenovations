@@ -87,62 +87,56 @@
 
 /* === MOBILE NAV (≤ 860px) — tight spacing, centered logo, aligned toggle === */
 @media (max-width: 860px) {
-  .navbar { padding: 0; } /* no extra padding on the bar itself */
-
   .navbar-container {
     position: relative;
     display: block;
-    padding: calc(env(safe-area-inset-top) + 8px) 16px 8px; /* small, notch-safe */
+    padding: calc(env(safe-area-inset-top) + 4px) 16px 4px; /* minimal top/bottom */
     height: auto;
   }
 
-  /* Center the logo absolutely */
+  /* Centered logo */
   .logo-container {
     position: absolute;
-    top: calc(env(safe-area-inset-top) + 8px);
+    top: calc(env(safe-area-inset-top) + 4px);
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
-    height: auto; /* let the image dictate height */
+    height: auto;
   }
 
-  /* Large mobile logo */
   .logo-img {
-    height: 180px !important;
+    height: 160px !important; /* fits the bar better visually */
     width: auto;
     object-fit: contain;
   }
 
-  /* Reserve exactly the logo height so content sits right below the bar */
+  /* Keeps content aligned directly below navbar */
   .navbar-container::after {
     content: "";
     display: block;
-    height: 180px; /* must match .logo-img height */
+    height: 160px; /* same as logo height */
   }
 
-  /* Hamburger: right side, vertically centered vs the logo */
+  /* Align hamburger perfectly with logo’s vertical center */
   .menu-toggle {
     position: absolute;
     right: 16px;
-    /* logo top + half logo height − half icon height (≈13px for a 26px icon) */
-    top: calc(env(safe-area-inset-top) + 8px + 90px - 13px);
+    top: calc(env(safe-area-inset-top) + 4px + 80px - 13px);
     display: block;
     z-index: 1001;
   }
 
-  /* Dropdown attaches to bottom of navbar, not pushed way down */
   .nav-links {
     position: absolute;
     left: 0;
     right: 0;
-    top: 100%;                 /* anchors directly under the bar */
+    top: 100%;
     background: var(--gold);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 14px;
     padding: 0 0 12px;
-
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -159,9 +153,8 @@
   }
 }
 
-/* Tiny phones */
 @media (max-width: 480px) {
-  .logo-img { height: 160px !important; }
-  .navbar-container::after { height: 160px; }
-  .menu-toggle { top: calc(env(safe-area-inset-top) + 8px + 80px - 13px); }
+  .logo-img { height: 145px !important; }
+  .navbar-container::after { height: 145px; }
+  .menu-toggle { top: calc(env(safe-area-inset-top) + 4px + 72px - 13px); }
 }
