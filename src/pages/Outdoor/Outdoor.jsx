@@ -1,8 +1,9 @@
 import "../../components/Navbar/Navbar.css";
 import Navbar from "../../components/Navbar/Navbar.jsx";
-import "../Kitchen/Kitchen.css";
+import "../Kitchen/Kitchen.css"; // reuse consistent styling
 import { Link } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
+import Footer from "../../components/Footer/Footer.jsx";
 
 import img1 from "../../assets/Outdoor/IMG_5558.jpg";
 import img2 from "../../assets/Outdoor/IMG_5560.jpg";
@@ -33,6 +34,9 @@ export default function Outdoor() {
                 Screened lanais, patios, porch enclosures, and small additions — permitted, scheduled,
                 and managed end-to-end with Skyro&apos;s general contracting oversight.
               </p>
+              <Link to="/contact" className="kb-cta inline">
+                Request a Quote
+              </Link>
             </header>
 
             <div className="kb-hero-media">
@@ -46,7 +50,9 @@ export default function Outdoor() {
                   interval={4500}
                 />
               </div>
-              <p className="kb-caption">Built to handle Florida weather with low-maintenance materials.</p>
+              <p className="kb-caption">
+                Built to handle Florida weather with low-maintenance materials.
+              </p>
             </div>
           </div>
         </div>
@@ -55,23 +61,26 @@ export default function Outdoor() {
           <div className="kb-cards">
             <div className="kb-card">
               <h3>Screened Lanais &amp; Patios</h3>
-              <p>Durable screened structures for shade and bug protection with low-maintenance materials.</p>
+              <p>
+                Durable screened structures for shade and bug protection with low-maintenance materials.
+              </p>
             </div>
             <div className="kb-card">
               <h3>Porch Enclosures</h3>
-              <p>Convert existing porches into comfortable 3-season spaces with windows, doors, and trim.</p>
+              <p>
+                Convert existing porches into comfortable 3-season spaces with windows, doors, and trim.
+              </p>
             </div>
             <div className="kb-card">
               <h3>Small Additions &amp; Permits</h3>
-              <p>Foundations, framing, inspections, and coordination—managed under Skyro&apos;s GC oversight.</p>
+              <p>
+                Foundations, framing, inspections, and coordination — managed under Skyro&apos;s GC oversight.
+              </p>
             </div>
-          </div>
-
-          <div className="kb-cta-wrap">
-            <Link to="/contact" className="kb-cta">Get a Free Estimate</Link>
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

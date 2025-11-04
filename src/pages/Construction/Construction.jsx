@@ -3,8 +3,9 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import "./Construction.css";
 import { Link } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
+import Footer from "../../components/Footer/Footer.jsx";
 
-// Commercial images (swap these imports to your real files)
+// Commercial / Construction images
 import c1 from "../../assets/COMM/IMG_5585.webp";
 import c2 from "../../assets/COMM/IMG_7319.webp";
 import c3 from "../../assets/COMM/IMG_0950.webp";
@@ -12,8 +13,8 @@ import c4 from "../../assets/COMM/IMG_7457.webp";
 import c5 from "../../assets/COMM/20200401_120228.webp";
 import c6 from "../../assets/COMM/IMG_7464.webp";
 
-export default function Commercial() {
-  const commercialImages = [
+export default function Construction() {
+  const constructionImages = [
     { src: c1, alt: "Sushi restaurant buildout 1" },
     { src: c2, alt: "Sushi restaurant buildout 2" },
     { src: c3, alt: "Hair salon renovation 1" },
@@ -25,21 +26,24 @@ export default function Commercial() {
   return (
     <>
       <Navbar />
-      <section className="commercial-page">
+      <section className="construction-page">
         <div className="cc-container">
           <div className="cc-hero-row">
             <header className="cc-hero-copy">
               <h1>Commercial Construction</h1>
               <p className="hero-subtitle">
-                Restaurants, salons, academies, and custom commercial spaces—permit-ready
+                Restaurants, salons, academies, and custom commercial spaces — permit-ready
                 buildouts, fast-turn renovations, and premium finishes that stand up to daily use.
               </p>
+              <Link to="/contact" className="cc-cta inline">
+                Request a Quote
+              </Link>
             </header>
 
             <div className="cc-hero-media">
               <div className="cc-carousel">
                 <Carousel
-                  images={commercialImages}
+                  images={constructionImages}
                   ariaLabel="Commercial construction project photos"
                   ratio="4/5"
                   fit="cover"
@@ -69,12 +73,9 @@ export default function Commercial() {
               <p>Phased work to minimize downtime and keep your business operating smoothly.</p>
             </div>
           </div>
-
-          <div className="cc-cta-wrap">
-            <Link to="/contact" className="cc-cta">Get a Commercial Estimate</Link>
-          </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

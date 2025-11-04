@@ -1,9 +1,11 @@
 import "../../components/Navbar/Navbar.css";
 import Navbar from "../../components/Navbar/Navbar.jsx";
-import "../Kitchen/Kitchen.css";
+import "../Kitchen/Kitchen.css"; // keeps styles consistent across services
 import { Link } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
+import Footer from "../../components/Footer/Footer.jsx";
 
+// Interior / Flooring images
 import img1 from "../../assets/Interior/IMG_5568.jpg";
 import img2 from "../../assets/Interior/IMG_5569.jpg";
 import img3 from "../../assets/Interior/IMG_5571.jpg";
@@ -33,6 +35,9 @@ export default function Flooring() {
                 Precision installation of hardwood, tile, or luxury vinyl plus interior trim work
                 (baseboards, crown, casing) and finishing details that pull rooms together.
               </p>
+              <Link to="/contact" className="kb-cta inline">
+                Request a Quote
+              </Link>
             </header>
 
             <div className="kb-hero-media">
@@ -46,7 +51,9 @@ export default function Flooring() {
                   interval={4500}
                 />
               </div>
-              <p className="kb-caption">Flooring and trim refresh for a cohesive interior.</p>
+              <p className="kb-caption">
+                Flooring and trim refresh for a cohesive interior.
+              </p>
             </div>
           </div>
         </div>
@@ -55,23 +62,26 @@ export default function Flooring() {
           <div className="kb-cards">
             <div className="kb-card">
               <h3>Flooring Installation</h3>
-              <p>Hardwood, tile, or LVP/LVT with proper subfloor prep, leveling, and clean transitions.</p>
+              <p>
+                Hardwood, tile, or LVP/LVT with proper subfloor prep, leveling, and clean transitions.
+              </p>
             </div>
             <div className="kb-card">
               <h3>Trim &amp; Molding</h3>
-              <p>Baseboards, crown, casing, wainscoting, and caulk for crisp lines and finished rooms.</p>
+              <p>
+                Baseboards, crown, casing, wainscoting, and caulk for crisp lines and finished rooms.
+              </p>
             </div>
             <div className="kb-card">
               <h3>Paint &amp; Finishes</h3>
-              <p>Touch-ups, color matching, and detailing that ties the space together.</p>
+              <p>
+                Touch-ups, color matching, and detailing that ties the space together.
+              </p>
             </div>
-          </div>
-
-          <div className="kb-cta-wrap">
-            <Link to="/contact" className="kb-cta">Get a Free Estimate</Link>
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

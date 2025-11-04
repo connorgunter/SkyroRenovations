@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import "./Kitchen.css";
 import { Link } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
+import Footer from "../../components/Footer/Footer.jsx";
 
 // KB images
 import img1 from "../../assets/KB/IMG_5557.jpg";
@@ -42,6 +43,7 @@ export default function Kitchen() {
                 Custom kitchens and spa-style bathrooms — layout updates, cabinetry, tile/stone,
                 lighting, fixtures, and finishes built for everyday durability and resale value.
               </p>
+              <Link to="/contact" className="kb-cta inline">Request a Quote</Link>
             </header>
 
             <div className="kb-hero-media">
@@ -77,12 +79,9 @@ export default function Kitchen() {
               <p>Flow improvements plus trim, paint, and finish work that pull the room together.</p>
             </div>
           </div>
-
-          <div className="kb-cta-wrap">
-            <Link to="/contact" className="kb-cta">Get a Free Estimate</Link>
-          </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
