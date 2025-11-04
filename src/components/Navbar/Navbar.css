@@ -85,68 +85,31 @@
   border-color: var(--gold-dark);
 }
 
-/* === MOBILE CENTERED LOGO (≤ 860px) === */
+/* Center logo on mobile only */
 @media (max-width: 860px) {
-  /* set your mobile logo height once here */
-  :root { --mobile-logo: 220px; } /* ↑ make larger/smaller here */
-
-  .navbar-container {
-    position: relative;
-    height: auto;                /* let the logo dictate the bar height */
-    padding: 8px 12px;           /* tight gold above/below */
-  }
-
-  /* center the logo horizontally */
   .logo-container {
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    height: auto;
+    justify-content: center;
+    width: 100%;
   }
 
-  .logo-img {
-    height: var(--mobile-logo) !important;
-    width: auto;
-    object-fit: contain;
-    display: block;
-  }
-
-  /* keep hamburger visible on the right, vertically aligned */
-  .menu-toggle {
-    position: absolute;
-    right: 12px;
-    top: 16px;
-    display: block;
-    z-index: 1001;
-  }
-
-  /* dropdown attaches directly beneath the logo (not hard-coded 80px) */
-  .nav-links {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(8px + var(--mobile-logo) + 8px); /* 8px padding + logo + 8px */
-    background-color: var(--gold);
+  /* make sure the nav and toggle don’t push it out of place */
+  .navbar-container {
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    gap: 18px;
-    padding: 1rem 0 1.25rem;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform .28s ease, opacity .2s ease;
-    box-shadow: 0 8px 14px rgba(0,0,0,.25);
   }
 
-  .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
+  /* keep hamburger above logo */
+  .menu-toggle {
+    align-self: flex-end;
+    margin-bottom: 4px;
+  }
+
+  /* ensure nav drops below logo cleanly */
+  .nav-links {
+    top: auto;
   }
 }
+
 
 /* Small phones — scale down a bit if needed */
 @media (max-width: 480px) {
