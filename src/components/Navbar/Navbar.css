@@ -89,35 +89,40 @@
 @media (max-width: 860px) {
   .navbar-container {
     justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 1rem 1rem 0.5rem;
     position: relative;
   }
 
-  /* Center the logo */
+  /* Center and free the logo */
   .logo-container {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
+    height: auto; /* allow it to grow freely */
   }
 
   .logo-img {
-    height: 225px; /* larger on mobile */
+    height: 225px !important; /* force override desktop size */
     width: auto;
+    object-fit: contain;
   }
 
-  /* Keep the hamburger visible on the right */
+  /* Hamburger button stays top right */
   .menu-toggle {
     position: absolute;
     right: 20px;
-    top: 28px;
+    top: 30px;
     display: block;
     z-index: 1001;
   }
 
-  /* Slide-down menu */
+  /* Dropdown menu */
   .nav-links {
     position: absolute;
-    top: 90px; /* slightly lower to account for bigger logo */
+    top: 250px; /* push down under large logo */
     left: 0;
     width: 100%;
     background-color: var(--gold);
@@ -125,7 +130,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 18px;
-    padding: 1rem 0 1.5rem;
+    padding: 1.5rem 0;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
@@ -141,15 +146,9 @@
 
 @media (max-width: 480px) {
   .logo-img {
-    height: 150px;
+    height: 190px !important;
   }
-
-  .menu-toggle {
-    top: 20px;
-    right: 16px;
-  }
-
   .nav-links {
-    top: 80px;
+    top: 210px;
   }
 }
