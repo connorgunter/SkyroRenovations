@@ -12,6 +12,7 @@ import img3 from "../../assets/Interior/IMG_5571.jpg";
 import img4 from "../../assets/Interior/IMG_5572.jpg";
 import img5 from "../../assets/Interior/IMG_5573.jpg";
 import img6 from "../../assets/Interior/IMG_5577.jpg";
+import img7 from "../../assets/COMM/sushiflooring.jpeg";
 
 export default function Flooring() {
   const interiorImages = [
@@ -21,6 +22,7 @@ export default function Flooring() {
     { src: img4, alt: "Flooring and trim project 4" },
     { src: img5, alt: "Flooring and trim project 5" },
     { src: img6, alt: "Flooring and trim project 6" },
+    { src: img7, alt: "Flooring and trim project 7" },
   ];
 
   return (
