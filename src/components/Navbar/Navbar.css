@@ -85,55 +85,26 @@
   border-color: var(--gold-dark);
 }
 
-/* === MOBILE FIX (≤ 860px): center logo, expand bar to fit it, drop menu under bar === */
+/* ===== MOBILE STYLES ===== */
 @media (max-width: 860px) {
-  /* Let the bar grow to the logo and act as the anchor for the dropdown */
-  .navbar-container {
-    position: relative;
-    height: auto;              /* <-- critical: no fixed 80px */
-    padding: 8px 12px;         /* tight gold above/below */
-    flex-direction: column;    /* stack toggle -> logo -> (dropdown below bar) */
-    align-items: center;
-  }
-
-  /* Show the hamburger above the logo, aligned to the right edge */
   .menu-toggle {
-    align-self: flex-end;
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  /* Center the logo and keep your size */
-  .logo-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .logo-img {
-    height: 220px;   /* your current mobile size */
-    width: auto;
-    object-fit: contain;
     display: block;
   }
 
-  /* Make the dropdown attach to the bottom of the navbar, not the page */
   .nav-links {
-    position: absolute;        /* anchor to .navbar-container */
+    position: absolute;
+    top: 80px;
     left: 0;
-    right: 0;
-    top: 100%;                 /* directly under the gold bar */
+    width: 100%;
     background-color: var(--gold);
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     gap: 18px;
-    padding: 1rem 0 1.2rem;
-
-    /* hidden state */
+    padding: 1rem 0 1.5rem;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
-    transition: transform .28s ease, opacity .2s ease;
-    box-shadow: 0 8px 14px rgba(0,0,0,.25);
   }
 
   .nav-links.active {
@@ -141,9 +112,16 @@
     opacity: 1;
     pointer-events: all;
   }
+
+  .logo-img {
+    height: 220px;
+    text-align: center;
+  }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
-  .logo-img { height: 140px; } /* your existing small-phone size */
+  .logo-img {
+    height: 140px;
+  }
 }
