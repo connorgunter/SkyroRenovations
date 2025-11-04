@@ -2,7 +2,7 @@ import "./Hero.css";
 
 import Navbar from "../Navbar/Navbar.jsx";
 import slide1 from "../../assets/KB/IMG_5557.jpg";
-import slide2 from "../../assets/Outdoor/IMG_5558.jpg";
+import slide2 from "../../assets/COMM/sushibar.jpeg";
 import slide3 from "../../assets/KB/IMG_5564.jpg";
 
 function Hero() {

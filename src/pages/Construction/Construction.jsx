@@ -10,8 +10,16 @@ import c1 from "../../assets/COMM/IMG_5585.webp";
 import c2 from "../../assets/COMM/IMG_7319.webp";
 import c3 from "../../assets/COMM/IMG_0950.webp";
 import c4 from "../../assets/COMM/IMG_7457.webp";
-import c5 from "../../assets/COMM/20200401_120228.webp";
-import c6 from "../../assets/COMM/IMG_7464.webp";
+import c5 from "../../assets/COMM/IMG_7464.webp";
+import c6 from "../../assets/COMM/20200401_120228.webp";
+import c7 from "../../assets/COMM/sushibefore.jpeg";
+import c8 from "../../assets/COMM/5634.jpeg";
+import c9 from "../../assets/COMM/sushiflooring.jpeg";
+import c10 from "../../assets/COMM/sushikitchen.jpeg";
+import c11 from "../../assets/COMM/sushibar.jpeg";
+import c12 from "../../assets/COMM/sushiseating.jpeg";
+import c13 from "../../assets/COMM/sushiwalkin.jpeg";
+import c14 from "../../assets/COMM/fishtank.jpeg";
 
 export default function Construction() {
   const constructionImages = [
@@ -21,6 +29,14 @@ export default function Construction() {
     { src: c4, alt: "Hair salon renovation 2" },
     { src: c5, alt: "Salon academy build 1" },
     { src: c6, alt: "Salon academy build 2" },
+    { src: c7, alt: "Sushi restaurant buildout 3" },
+    { src: c8, alt: "Sushi restaurant buildout 4" },
+    { src: c9, alt: "Sushi restaurant buildout 5" },
+    { src: c10, alt: "Sushi restaurant buildout 6" },
+    { src: c11, alt: "Sushi restaurant buildout 7" },
+    { src: c12, alt: "Sushi restaurant buildout 8" },
+    { src: c13, alt: "Sushi restaurant buildout 9" },
+    { src: c14, alt: "Sushi restaurant buildout 10" },
   ];
 
   return (

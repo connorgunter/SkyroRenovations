@@ -15,6 +15,12 @@ import slide7 from "../../assets/KB/IMG_6483.jpg";
 import slide8 from "../../assets/KB/IMG_0327.jpg";
 import slide9 from "../../assets/KB/IMG_0330.jpg";
 import slide10 from "../../assets/KB/IMG_0339.jpg";
+import slide11 from "../../assets/COMM/sushikitchen.jpeg";
+import slide12 from "../../assets/COMM/sushibar.jpeg";
+import slide13 from "../../assets/COMM/IMG_5585.webp";
+import slide14 from "../../assets/Outdoor/2025-09-06.webp";
+import slide15 from "../../assets/Interior/IMG_5572.jpg";
+import slide16 from "../../assets/Interior/IMG_5577.jpg";
 
 function Slideshow() {
   return (
@@ -41,7 +47,7 @@ function Slideshow() {
           autoplay={{ delay: 4000 }}
           loop
         >
-          {[slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10].map((src, idx) => (
+          {[slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13, slide14, slide15, slide16].map((src, idx) => (
             <SwiperSlide key={idx}>
               <img src={src} alt={`Project ${idx + 1}`} />
             </SwiperSlide>
