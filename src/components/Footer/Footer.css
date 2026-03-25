@@ -6,6 +6,7 @@
     color: #E5E5E5;
     background-color: #0C0C0C;
     border-top: 1px solid #ddd;
+    position: relative;
   }
   
   .site-footer a {
@@ -17,4 +18,32 @@
   .site-footer a:hover {
     text-decoration: underline;
   }
+
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 12px;
+  }
   
+  /* Wrap BOTH badges consistently */
+  .trust-badges a {
+    background: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+/* Default size (BBB) */
+.trust-badges img {
+  height: 55px;
+  width: auto;
+}
+
+/* Override ONLY DUNS */
+.trust-badges img.duns-image {
+  height: 55px;
+  transform: scale(1.6);
+}

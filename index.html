@@ -9,20 +9,35 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    
-    <form name="get-started" data-netlify="true" netlify-honeypot="bot-field" hidden>
+
+    <!-- DUNS Seal (correct placement) -->
+    <!-- <div id="duns-wrapper">
+      <script src="https://dunsregistered.dnb.com/drsus.js?duns=7a6a13c646a8777770f134efa120ddf0&ProfileURL=https://www.dnb.com/business-directory/company-profiles.skyro_renovations_llc.7a6a13c646a8777770f134efa120ddf0.html?referrer=DRS"></script>
+    </div> -->
+
+    <!-- Netlify Forms -->
+    <form
+      name="get-started"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="text" name="phone" />
       <textarea name="message"></textarea>
+    </form>
 
-      <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="tel" name="phone" />
-        <textarea name="message"></textarea>
-      </form>
-      
+    <form
+      name="contact"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
     </form>
   </body>
 </html>
